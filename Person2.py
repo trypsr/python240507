@@ -9,12 +9,14 @@ class Person:
         print("My name is {0}".format(self.name))
 
 
+Person.title = "new title"
 p1 = Person()
+print("숫자:{0}".format(Person.num_person))
+print(p1.title, Person.num_person)
+
 p2 = Person()
 print("숫자:{0}".format(Person.num_person))
-Person.title = "new title"
-print(p1.title)
-print(p2.title)
+print(p2.title, Person.num_person)
 print(Person.title)
 
 
