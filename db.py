@@ -1,10 +1,11 @@
 import sqlite3
 
-con = sqlite3.connect(":memory:")
+# con = sqlite3.connect(":memory:")
+con = sqlite3.connect("c:\\work\\test.db")
 
 cur = con.cursor()
 
-cur.execute("create table PhoneBook (Name text, PhoneNum text);")
+cur.execute("create table if not exists PhoneBook (Name text, PhoneNum text);")
 
 cur.execute("insert into PhoneBook values ('전우치', '010-2977-4444')")
 name = "홍길동"
@@ -17,6 +18,10 @@ cur.executemany("insert into PhoneBook values (?, ?)", datalist)
 
 
 
+
 cur.execute("select * from PhoneBook;")
 for row in cur:
     print(row[0], row[1])
+
+cur.fetchall()
+con.commit()
